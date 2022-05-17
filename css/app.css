@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --aqua: #6075E7;
+  --darkAqua: #2A2259;
+  --violet: #9A5088;
+  --darkViolet: #7b2967;
+  --yellow: #FFCB3D;
+  --darkYellow: #b18d2b;
+  --tomato: #ff573d;
+  --darkTomato: #8a2a1b;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: #f2f2f2;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
+  margin: 0;
+  font-weight: 100;
+}
+
+.container {
+  max-width: 1200px;
+  min-height: 1200px;
+  margin: 3rem auto;
+  font-size: 2rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* GRID */
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  grid-template-rows: repeat(2, 100px);
+  gap: 10px;
+  justify-content: center;
+  align-content: center;
+}
+
+.box {
+  /* width: 200px;
+  height: 200px; */
+  background-color: var(--yellow);
+  border: solid 1px var(--darkYellow);  
+  font-size: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-01 {
+  /* grid-column-start: 1;
+  grid-column-end: -1; */
+  grid-column: 1/-1;
+}
+
+.box-02 {
+  /* grid-row-start: 2;
+  grid-row-end: 5; */
+  grid-row: 2/5;
+}
+
+.box-12 {
+  grid-column: 2/3;
+}
+
+.box:nth-child(2n) {
+  background-color: var(--violet);
+  border-color: var(--darkViolet);
+  color: #ffffff;  
+}
+
+.box:nth-child(3n) {
+  background-color: var(--aqua);
+  border-color: var(--darkAqua);
+  color: #ffffff;  
+}
+
+.box:nth-child(4n) {
+  background-color: var(--tomato);
+  border-color: var(--darkTomato);
+  color: #ffffff;  
+}
+
+.container2 {
+  max-width: 1200px;
+  margin: 3rem auto;
+  font-size: 2rem;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* GRID */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) ;
+  grid-template-rows: 200px repeat(2, minmax(150px, auto)) 200px;
+  grid-template-areas:
+    'header header header header'
+    'aside content content content'
+    'aside content content content'
+    'footer footer footer footer'
+  ;
+}
+
+header {
+  background-color: var(--aqua);
+  grid-area: header;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(auto, 250px));
+  align-content: center;
+  justify-content: center;
+}
+
+header div {
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid red
+}
+
+aside {
+  background-color: var(--violet);
+  grid-area: aside;
+}
+
+section {
+  background-color: var(--yellow);
+  grid-area: content;
+}
+
+footer {
+  background-color: var(--tomato);
+  grid-area: footer;
+}
